@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - 0.10
+
+addons:
+  postgresql: "9.3"
+
+before_install:
+  - psql -c 'create database bookshelf_deep_changed;' -U postgres

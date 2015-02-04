@@ -1,0 +1,40 @@
+{
+  "name": "bookshelf-deep-changed",
+  "version": "0.0.1",
+  "description": "Allows bookshelf models to check whether a value you are saving is different than the existing value in the database.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lanetix/bookshelf-deep-changed"
+  },
+  "keywords": [
+    "bookshelf",
+    "hasChanged",
+    "compare values"
+  ],
+  "author": "Oron Nadiv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lanetix/bookshelf-deep-changed/issues"
+  },
+  "homepage": "https://github.com/lanetix/bookshelf-deep-changed",
+  "scripts": {
+    "lint": "bin/lint",
+    "test": "bin/test"
+  },
+  "dependencies": {
+    "bluebird": "^2",
+    "bookshelf": "^0.7",
+    "coveralls": "^2.11.2",
+    "knex": "^0.7",
+    "mocha-lcov-reporter": "0.0.1",
+    "pg": "^4",
+    "underscore": "^1"
+  },
+  "devDependencies": {
+    "chance": "*",
+    "jshint": "*",
+    "mocha": "*",
+    "should": "*"
+  }
+}
