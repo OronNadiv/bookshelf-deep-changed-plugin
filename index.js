@@ -10,10 +10,10 @@
         hasChanged = [],
         options;
 
-      _.each(arguments, function (arg, index) {
+      _.each(arguments, function (arg, index, args) {
         if (!_.isString(arg)) {
-          if (index !== arguments.length - 1) {
-            throw new Error('Expecting strings only.  You can pass an \'Options\' parameter as the last argument.  Position: %d, Given non-string argument: ', index, arg);
+          if (index !== args.length - 1) {
+            throw new Error('Expecting strings only.  You can pass an \'Options\' parameter as the last argument.  Position: ' + index + ', Given non-string argument: ', arg);
           } else if (_.isObject(arg)) {
             options = arg;
           } else {
