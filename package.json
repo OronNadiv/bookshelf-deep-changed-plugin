@@ -1,6 +1,6 @@
 {
   "name": "bookshelf-deep-changed-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Allows bookshelf models to check whether a value you are saving is different than the existing value in the database.",
   "main": "index.js",
   "repository": {

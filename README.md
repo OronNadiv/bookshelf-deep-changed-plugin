@@ -1,6 +1,6 @@
 [![Dependencies](https://david-dm.org/oronnadiv/bookshelf-deep-changed-plugin.svg?style=flat)](https://david-dm.org/oronnadiv/bookshelf-deep-changed-plugin)
 [![devDependency Status](https://david-dm.org/oronnadiv/bookshelf-deep-changed-plugin/dev-status.svg?style=flat)](https://david-dm.org/oronnadiv/bookshelf-deep-changed-plugin#info=devDependencies)
-[![Build Status](https://travis-ci.org/oronnadiv/bookshelf-deep-changed-plugin.svg?style=flat)](https://travis-ci.org/oronnadiv/bookshelf-deep-changed-plugin)
+[![Build Status](https://travis-ci.org/OronNadiv/bookshelf-deep-changed-plugin.svg?style=flat)](https://travis-ci.org/OronNadiv/bookshelf-deep-changed-plugin)
 # bookshelf-deep-changed-plugin
 Allows bookshelf models to check whether a value you are saving is different than the existing value in the database.
 
