@@ -1,10 +1,11 @@
-(function () {
-  'use strict';
+'use strict';
 
-  var Promise = require('bluebird'),
-    _ = require('underscore');
+var Promise = require('bluebird'),
+  _ = require('underscore');
 
-  module.exports = {
+module.exports = function (Bookshelf) {
+
+  Bookshelf.Model = Bookshelf.Model.extend({
     deepChanged: function () {
       var missing = [],
         hasChanged = [],
@@ -50,5 +51,5 @@
           }, this);
         }).return(hasChanged);
     }
-  };
-}());
+  });
+};

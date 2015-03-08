@@ -1,9 +1,11 @@
-(function () {
-  'use strict';
+'use strict';
 
-  module.exports = require('bookshelf')(require('knex')({
+var knex = require('knex')({
     //debug: true,
     client: 'pg',
-    connection: process.env.DATABASE_URL || 'postgres://postgres@localhost/bookshelf_deep_changed'
-  }));
-}());
+    connection: process.env.DATABASE_URL || 'postgres://postgres@localhost/bookshelf_deep_changed_plugin'
+  }),
+  bookshelf = require('bookshelf')(knex);
+
+bookshelf.plugin(require('../index'));
+module.exports = bookshelf;

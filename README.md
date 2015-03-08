@@ -1,12 +1,12 @@
-[![Dependencies](https://david-dm.org/lanetix/bookshelf-deep-changed.svg?style=flat)](https://david-dm.org/lanetix/bookshelf-deep-changed)
-[![devDependency Status](https://david-dm.org/lanetix/bookshelf-deep-changed/dev-status.svg?style=flat)](https://david-dm.org/lanetix/bookshelf-deep-changed#info=devDependencies)
-[![Build Status](https://travis-ci.org/lanetix/bookshelf-deep-changed.svg?style=flat)](https://travis-ci.org/lanetix/bookshelf-deep-changed)
-# bookshelf-deep-changed
+[![Dependencies](https://david-dm.org/oronnadiv/bookshelf-deep-changed-plugin.svg?style=flat)](https://david-dm.org/oronnadiv/bookshelf-deep-changed-plugin)
+[![devDependency Status](https://david-dm.org/oronnadiv/bookshelf-deep-changed-plugin/dev-status.svg?style=flat)](https://david-dm.org/oronnadiv/bookshelf-deep-changed-plugin#info=devDependencies)
+[![Build Status](https://travis-ci.org/oronnadiv/bookshelf-deep-changed-plugin.svg?style=flat)](https://travis-ci.org/oronnadiv/bookshelf-deep-changed-plugin)
+# bookshelf-deep-changed-plugin
 Allows bookshelf models to check whether a value you are saving is different than the existing value in the database.
 
 Usage:
 ```
-module.exports = Repository.Model.extend(_.extend({
+module.exports = Repository.Model.extend({
   tableName: 'users',
   initialize: function () {
     this.on('updating', function (model, attrs, options) {
@@ -21,6 +21,17 @@ module.exports = Repository.Model.extend(_.extend({
         });
     });
   }
-}, require('bookshelf-deep-changed')));
+});
 
+```
+
+Do not forget to add ```bookshelf-deep-changed-plugin``` to the list of bookshelf's plugins when you require bookshelf:
+
+```
+var knex = require('knex')({
+    /// knex initialization
+  }),
+  bookshelf = require('bookshelf')(knex);
+
+bookshelf.plugin(require('bookshelf-soft-delete-plugin'));
 ```

@@ -1,26 +1,33 @@
 {
-  "name": "bookshelf-deep-changed",
-  "version": "0.0.2",
+  "name": "bookshelf-deep-changed-plugin",
+  "version": "1.0.0",
   "description": "Allows bookshelf models to check whether a value you are saving is different than the existing value in the database.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lanetix/bookshelf-deep-changed"
+    "url": "https://github.com/oronnadiv/bookshelf-deep-changed-plugin"
   },
   "keywords": [
     "bookshelf",
     "hasChanged",
+    "deepChanged",
+    "plugin",
     "compare values"
   ],
   "author": "Oron Nadiv",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lanetix/bookshelf-deep-changed/issues"
+    "url": "https://github.com/oronnadiv/bookshelf-deep-changed-plugin/issues"
   },
-  "homepage": "https://github.com/lanetix/bookshelf-deep-changed",
+  "homepage": "https://github.com/oronnadiv/bookshelf-deep-changed-plugin",
+  "engines": {
+    "node": ">=0.10 <=0.12",
+    "npm": ">=1 <=2"
+  },
   "scripts": {
-    "lint": "bin/lint",
-    "test": "bin/test"
+    "lint": "eslint --ignore-path .gitignore .",
+    "mocha": "mocha ./tests",
+    "test": "npm run lint && npm run mocha"
   },
   "dependencies": {
     "bluebird": "^2",
@@ -33,7 +40,8 @@
   },
   "devDependencies": {
     "chance": "*",
-    "jshint": "*",
+    "eslint": "*",
+    "eslint-plugin-nodeca": "*",
     "mocha": "*",
     "should": "*"
   }
