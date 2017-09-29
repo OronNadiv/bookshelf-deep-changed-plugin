@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 const expect = require('chai').expect
 const chance = require('chance')()
 const Promise = require('bluebird')
