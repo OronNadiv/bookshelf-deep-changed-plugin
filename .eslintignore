@@ -1,9 +1,4 @@
-.idea
 .nyc_output
 coverage
 dist
-.npmrc
 node_modules
-*.iml
-*.log
-.DS_Store
