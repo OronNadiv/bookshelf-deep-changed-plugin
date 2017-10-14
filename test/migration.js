@@ -1,4 +1,5 @@
-const Promise = require('bluebird')
+import Promise from 'bluebird'
+
 const drops = [
   'users'
 ]

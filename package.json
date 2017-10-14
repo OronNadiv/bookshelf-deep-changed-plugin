@@ -1,6 +1,6 @@
 {
   "name": "bookshelf-deep-changed-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Allows bookshelf models to check whether a value you save is different than the existing value in the database.",
   "main": "dist/index.js",
   "files": [
@@ -30,11 +30,12 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && webpack --config webpack.config.production.js",
+    "build": "npm run clean && babel src/ --out-dir dist/",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "nyc mocha test",
-    "test:coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "test": "npm run build && nyc mocha  --require babel-core/register --recursive -t 10000 --exit",
+    "test:coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "bluebird": ">=2 <4",
@@ -44,8 +45,8 @@
     "underscore": "^1"
   },
   "devDependencies": {
-    "babel-core": "^6.9.1",
-    "babel-loader": "^7.1.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "chai": "^4.1.2",
     "chance": "^1.0.11",
@@ -55,10 +56,10 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-mocha": "^4.11.0",
     "eslint-plugin-node": "^5.2.0",
-    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
-    "mocha": "^3.5.3",
+    "mocha": "^4.0.1",
     "nyc": "^11.2.1",
-    "webpack": "^3.6.0"
+    "rimraf": "^2.6.2"
   }
 }

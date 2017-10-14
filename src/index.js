@@ -1,7 +1,7 @@
-const Promise = require('bluebird')
-const _ = require('underscore')
+import Promise from 'bluebird'
+import _ from 'underscore'
 
-module.exports = function (Bookshelf) {
+module.exports = Bookshelf => {
   Bookshelf.Model = Bookshelf.Model.extend({
     // leave as function since it is bound to the model's scope.
     deepChanged: function () {
@@ -27,7 +27,7 @@ module.exports = function (Bookshelf) {
         } else {
           const previousValue = this.previous(arg)
           if (_.isUndefined(previousValue)) {
-            missing.push({ index, argument: arg })
+            missing.push({index, argument: arg})
             hasChanged.push(undefined) // we do not know.
           } else {
             hasChanged.push(!_.isEqual(previousValue, this.get(arg)))
@@ -44,7 +44,7 @@ module.exports = function (Bookshelf) {
       } else {
         promise = promise
           .then(() => {
-            return new this.constructor().query({ where: { id: this.id } }).fetch(options)
+            return new this.constructor().query({where: {id: this.id}}).fetch(options)
           })
           .then((previousModel) => {
             missing.forEach((item) => {
