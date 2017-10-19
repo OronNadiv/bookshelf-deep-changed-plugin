@@ -1,6 +1,6 @@
-import Repository from './repository'
+const Repository = require('./repository')
 
-export default Repository.Model.extend({
+module.exports = Repository.Model.extend({
   tableName: 'users',
   initialize: function () {
     this.on('updating', function (model, attrs, options) {

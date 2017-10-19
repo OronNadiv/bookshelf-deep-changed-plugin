@@ -4,13 +4,14 @@
   "description": "Allows bookshelf models to check whether a value you save is different than the existing value in the database.",
   "main": "dist/index.js",
   "files": [
-    "dist",
-    "README.md"
+    "dist"
   ],
   "keywords": [
     "bookshelf",
     "hasChanged",
+    "has changed",
     "deepChanged",
+    "deep changed",
     "plugin",
     "compare values"
   ],
@@ -25,15 +26,15 @@
   },
   "homepage": "https://github.com/OronNadiv/bookshelf-deep-changed-plugin",
   "engines": {
-    "node": ">=4",
-    "npm": ">=2"
+    "node": ">=4 <9",
+    "npm": ">=2 <6"
   },
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && babel src/ --out-dir dist/",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "npm run build && nyc mocha  --require babel-core/register --recursive -t 10000 --exit",
+    "test": "npm run lint && npm run build && cross-env DEBUG=\"* -babel\" NODE_ENV=test nyc mocha --recursive -t 10000 --exit",
     "test:coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "prepublish": "npm run build"
   },
@@ -41,16 +42,21 @@
     "bluebird": ">=2 <4",
     "bookshelf": ">=0.7 <0.11",
     "knex": ">=0.7 <0.14",
-    "pg": ">= 2.11.2 < 3.0.0 || >= 3.6.4 < 4.0.0 || >= 4.5.7 < 5.0.0 || >= 5.2.1 < 6.0.0 || >= 6.0.5 < 6.1.0 || >= 6.1.6 < 6.2.0 || >= 6.2.5 < 6.3.0 || >= 6.3.3 < 6.4.0 || >= 6.4.2 < 7.0.0 || >= 7.0.2 < 7.1.0 || ^7.1.2",
-    "underscore": "^1"
+    "lodash.isequal": "^4.5.0",
+    "lodash.isobject": "^3.0.2",
+    "lodash.isstring": "^4.0.1",
+    "lodash.isundefined": "^3.0.1",
+    "pg": ">= 2.11.2 < 3.0.0 || >= 3.6.4 < 4.0.0 || >= 4.5.7 < 5.0.0 || >= 5.2.1 < 6.0.0 || >= 6.0.5 < 6.1.0 || >= 6.1.6 < 6.2.0 || >= 6.2.5 < 6.3.0 || >= 6.3.3 < 6.4.0 || >= 6.4.2 < 7.0.0 || >= 7.0.2 < 7.1.0 || ^7.1.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-env": "^1.6.0",
     "chai": "^4.1.2",
     "chance": "^1.0.11",
     "coveralls": "^3.0.0",
+    "cross-env": "^5.1.0",
     "eslint": "^4.8.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
@@ -61,5 +67,17 @@
     "mocha": "^4.0.1",
     "nyc": "^11.2.1",
     "rimraf": "^2.6.2"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": 4
+          }
+        }
+      ]
+    ]
   }
 }

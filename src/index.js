@@ -1,5 +1,8 @@
 import Promise from 'bluebird'
-import _ from 'underscore'
+import isObject from 'lodash.isobject'
+import isString from 'lodash.isstring'
+import isUndefined from 'lodash.isundefined'
+import isEqual from 'lodash.isequal'
 
 module.exports = Bookshelf => {
   Bookshelf.Model = Bookshelf.Model.extend({
@@ -10,11 +13,11 @@ module.exports = Bookshelf => {
       const missing = []
       const hasChanged = []
 
-      _.each(arguments, (arg, index, args) => {
-        if (!_.isString(arg)) {
+      Array.from(arguments).forEach((arg, index, args) => {
+        if (!isString(arg)) {
           if (index !== args.length - 1) {
             throw new Error(`Expecting strings only.  You can pass an 'Options' parameter as the last argument.  Position: ${index}, Given non-string argument: ${arg}`)
-          } else if (_.isObject(arg)) {
+          } else if (isObject(arg)) {
             options = arg
           } else {
             throw new Error(`Last argument can either be a string or an options object.  Given last argument: ${arg}`)
@@ -26,11 +29,11 @@ module.exports = Bookshelf => {
           hasChanged.push(false)
         } else {
           const previousValue = this.previous(arg)
-          if (_.isUndefined(previousValue)) {
+          if (isUndefined(previousValue)) {
             missing.push({index, argument: arg})
             hasChanged.push(undefined) // we do not know.
           } else {
-            hasChanged.push(!_.isEqual(previousValue, this.get(arg)))
+            hasChanged.push(!isEqual(previousValue, this.get(arg)))
           }
         }
       }, this)
@@ -50,7 +53,7 @@ module.exports = Bookshelf => {
             missing.forEach((item) => {
               const index = item.index
               const argument = item.argument
-              const areEqual = _.isEqual(previousModel.get(argument), this.get(argument))
+              const areEqual = isEqual(previousModel.get(argument), this.get(argument))
               hasChanged.splice(index, 1, !areEqual)
             })
           })

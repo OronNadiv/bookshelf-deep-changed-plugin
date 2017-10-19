@@ -1,5 +1,5 @@
-import Knex from 'knex'
-import plugin from '../dist/index'
+const Knex = require('knex')
+const plugin = require('../dist/index')
 
 const knex = Knex({
   // debug: true,
@@ -9,4 +9,4 @@ const knex = Knex({
 const bookshelf = require('bookshelf')(knex)
 
 bookshelf.plugin(plugin)
-export default bookshelf
+module.exports = bookshelf

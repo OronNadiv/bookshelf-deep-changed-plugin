@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-expressions */
-import Chai from 'chai'
-import Chance from 'chance'
-import Promise from 'bluebird'
-import repository from './repository'
-import User from './user'
+const Chance = require('chance')
+const Promise = require('bluebird')
+const repository = require('./repository')
+const User = require('./user')
 
 const chance = Chance()
-const expect = Chai.expect
+const expect = require('chai').expect
 
 describe('Bookshelf-deep-changed-plugin', () => {
+  'use strict'
   let id
   let existingModel
   before(require('./migration')(repository))
@@ -27,8 +27,8 @@ describe('Bookshelf-deep-changed-plugin', () => {
       })
       .then((model) => {
         id = model.id
-        expect(model.get('name_changed_at')).be.undefined
-        expect(model.get('email_changed_at')).be.undefined
+        expect(model.get('name_changed_at')).to.be.undefined
+        expect(model.get('email_changed_at')).to.be.undefined
       })
   })
 
