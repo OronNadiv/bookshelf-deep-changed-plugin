@@ -5,7 +5,7 @@
 [![Test Coverage][coveralls-image]][coveralls-url]
 [![Dependencies][dependencies-image]][dependencies-url]
 [![devDependencies][devdependencies-image]][devdependencies-url]  
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+[![JavaScript Style Guide][standard-image]][standard-url]
 
 Allows bookshelf models to check whether a value you save is different than the existing value in the database.
 
@@ -65,3 +65,7 @@ bookshelf.plugin(require('bookshelf-deep-changed-plugin'));
 
 [dependencies-url]: https://david-dm.org/OronNadiv/bookshelf-deep-changed-plugin
 [devdependencies-url]: https://david-dm.org/OronNadiv/bookshelf-deep-changed-plugin?type=dev
+
+[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
+[standard-url]: http://standardjs.com
+
