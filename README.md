@@ -4,8 +4,8 @@
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 [![Dependencies][dependencies-image]][dependencies-url]
-[![devDependencies][devdependencies-image]][devdependencies-url]  
-[![JavaScript Style Guide][standard-image]][standard-url]
+[![devDependencies][devdependencies-image]][devdependencies-url]
+[![JavaScript Style Guide][standard-image]][standard-url]  
 
 Allows bookshelf models to check whether a value you save is different than the existing value in the database.
 
