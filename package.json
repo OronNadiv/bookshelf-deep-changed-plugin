@@ -1,6 +1,6 @@
 {
   "name": "bookshelf-deep-changed-plugin",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Allows bookshelf models to check whether a value you save is different than the existing value in the database.",
   "main": "dist/index.js",
   "files": [
@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/OronNadiv/bookshelf-deep-changed-plugin",
   "engines": {
-    "node": ">=4 <9",
-    "npm": ">=2 <6"
+    "node": ">=6 <10",
+    "npm": ">=3 <7"
   },
   "scripts": {
     "clean": "rimraf dist",
@@ -40,32 +40,33 @@
   },
   "dependencies": {
     "bluebird": ">=2 <4",
-    "bookshelf": ">=0.7 <0.13",
+    "bookshelf": ">=0.7 <0.14",
     "knex": ">=0.7 <0.15",
     "lodash.isequal": "^4.5.0",
     "lodash.isobject": "^3.0.2",
     "lodash.isstring": "^4.0.1",
     "lodash.isundefined": "^3.0.1",
-    "pg": "^7.4.1"
+    "pg": "^7.4.3"
   },
   "devDependencies": {
+    "ajv": "^6.5.2",
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-plugin-istanbul": "^4.1.5",
-    "babel-preset-env": "^1.6.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-istanbul": "^4.1.6",
+    "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
-    "chance": "^1.0.13",
-    "coveralls": "^3.0.0",
-    "cross-env": "^5.1.3",
-    "eslint": "^4.15.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-mocha": "^4.11.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "mocha": "^4.1.0",
-    "nyc": "^11.4.1",
+    "chance": "^1.0.16",
+    "coveralls": "^3.0.2",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.0.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-mocha": "^5.0.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
     "rimraf": "^2.6.2"
   },
   "babel": {
