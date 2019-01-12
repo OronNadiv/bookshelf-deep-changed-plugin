@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/OronNadiv/bookshelf-deep-changed-plugin",
   "engines": {
-    "node": ">=6 <10",
+    "node": ">=6 <11",
     "npm": ">=3 <7"
   },
   "scripts": {
